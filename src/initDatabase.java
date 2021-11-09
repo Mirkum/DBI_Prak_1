@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class Datenbank_Benchmark {
+public class initDatabase {
     public static void main(String[] args) throws SQLException
     {
         Connection conn = null;
@@ -13,7 +13,6 @@ public class Datenbank_Benchmark {
             conn.setAutoCommit(false);
             System.out.println("\nConnected to benchmark database!\n");
 
-/* init
             stmt = conn.prepareStatement(
                     "create schema 'benchmark-datenbank'");
 
@@ -91,9 +90,9 @@ public class Datenbank_Benchmark {
                             rs.getString(2) + "\t\t" + rs.getDouble(3));
                 }
                 rs.close();
-
+*/
             stmt.close();
-            conn.close();*/
+            conn.close();
 
 
             System.out.println("\nDisconnected!\n");
