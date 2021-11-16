@@ -1,22 +1,16 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Benchmark_DB {
     public static void main(String[] args) throws SQLException
     {
-        Connection conn = null;
-        PreparedStatement stmt = null;
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/benchmark-datenbank", "dbi", "dbi_pass");
+        assert false;
+        Statement stmt = conn.createStatement();
         try
         {
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/benchmark-datenbank", "dbi", "dbi_pass");
-            //conn.setAutoCommit(false);
+
             System.out.println("\nConnected to benchmark database!\n");
-
-
-            stmt = conn.prepareStatement("");
-            stmt.execute();
+            String sqlFillBranches= String.format("insert into `benchmark-datenbank`.branches values(?, );
 
 
             conn.commit();
