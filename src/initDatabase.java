@@ -16,7 +16,7 @@ public class initDatabase {
                     "DROP TABLE `benchmark-datenbank`.branches ,`benchmark-datenbank`.accounts ,`benchmark-datenbank`.history, `benchmark-datenbank`.tellers;"
                     ;
             stmt.executeUpdate(sqlDropTable);
-            System.out.println("\nCreated Table branches\n");
+            System.out.println("\nDrop Tables\n");
 
             String sqlBranches=
                     "create table branches\n" +
