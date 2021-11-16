@@ -1,13 +1,20 @@
 import java.sql.*;
+import java.util.Scanner;
 
 public class Benchmark_DB {
+    private static int n;
     public static void main(String[] args) throws SQLException
     {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Geben Sie n an: ");
+        n = scan.nextInt();
+        scan.close();
         Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/benchmark-datenbank", "dbi", "dbi_pass");
         assert false;
         Statement stmt = conn.createStatement();
         try
         {
+
 
             System.out.println("\nConnected to benchmark database!\n");
             String sqlFillBranches= String.format("insert into `benchmark-datenbank`.branches values(?, );
