@@ -3,16 +3,20 @@ import java.sql.*;
 public class initDatabase {
     public static void main(String[] args) throws SQLException
     {
-        Connection conn = null;
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/benchmark-datenbank", "dbi", "dbi_pass");
         assert false;
         Statement stmt = conn.createStatement();
-        //ResultSet rs   = null;
 
         try
         {
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/benchmark-datenbank", "dbi", "dbi_pass");
-            conn.setAutoCommit(false);
+            //conn.setAutoCommit(false);
             System.out.println("\nConnected to benchmark database!\n");
+
+            String sqlDropTable=
+                    "DROP TABLE `benchmark-datenbank`.branches ,`benchmark-datenbank`.accounts ,`benchmark-datenbank`.history, `benchmark-datenbank`.tellers;"
+                    ;
+            stmt.executeUpdate(sqlDropTable);
+            System.out.println("\nCreated Table branches\n");
 
             String sqlBranches=
                     "create table branches\n" +
